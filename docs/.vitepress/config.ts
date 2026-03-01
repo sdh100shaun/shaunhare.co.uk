@@ -6,6 +6,15 @@ export default defineConfig({
   outDir: '../dist',
   cleanUrls: true,
   head: [
+    // Fonts — loaded as <link> so the request fires before CSS is parsed,
+    // eliminating flash of unstyled text on the nav title.
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Nunito:wght@800;900&display=swap' }],
+    // Pre-establish connection to Credly CDN so the embed script loads faster
+    // when the about page is first visited.
+    ['link', { rel: 'preconnect', href: 'https://cdn.credly.com' }],
+    ['link', { rel: 'dns-prefetch', href: 'https://cdn.credly.com' }],
     ['meta', { property: 'og:title', content: 'Shaun Hare' }],
     ['meta', { property: 'og:description', content: 'Developer, technical leader, and community builder based in the East Midlands, UK.' }],
     ['meta', { property: 'og:type', content: 'website' }],
@@ -27,7 +36,6 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/sdh100shaun' },
-      { icon: 'twitter', link: 'https://x.com/sdh100shaun' },
       { icon: 'linkedin', link: 'https://linkedin.com/in/shaundhare' },
     ],
 

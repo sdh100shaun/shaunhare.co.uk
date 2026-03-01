@@ -5,6 +5,9 @@ hero:
   name: "Shaun Hare"
   text: "Developer & Community Builder"
   tagline: "Writing code since 1996. Currently leading digital services for UK Government. Still enjoying every bit of it."
+  image:
+    src: https://media.licdn.com/dms/image/v2/D4E03AQHOPpweQFvfig/profile-displayphoto-scale_400_400/B4EZykxJ4IH8Ag-/0/1772290876105?e=1773878400&v=beta&t=qwg6dVm7YwyoP645YSGoR90ZM630CCIPDfUwJZjZ5j4
+    alt: Shaun Hare
   actions:
     - theme: brand
       text: About me
@@ -13,14 +16,4 @@ hero:
       text: Blog
       link: /blog/
 
-features:
-  - icon: 🏛️
-    title: UK Government Digital
-    details: Principal Developer at the Driver and Vehicle Standards Agency (DVSA), delivering digital services used by millions of drivers and riders across the UK.
-  - icon: 🤝
-    title: Community Builder
-    details: Co-organiser of PHPMiNDS and LincolnHack — supporting the East Midlands tech community through meetups, hackathons, and bringing people together to build things.
-  - icon: 🛠️
-    title: Full-Stack Pragmatist
-    details: PHP, TypeScript, Java, Ruby, AWS, and whatever the problem actually needs. Open source advocate with a broad toolkit built over nearly three decades.
 ---

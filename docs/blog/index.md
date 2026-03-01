@@ -20,3 +20,10 @@ I also write on the [DVSA Digital Blog](https://dvsadigital.blog.gov.uk/author/s
 
 - **[Adopting a new language one microframework at a time](/blog/microframeworks)**
   *April 2014* — On the role micro-frameworks play in picking up a new programming language quickly, and why that process is more fun than it sounds.
+
+---
+
+**blog.shaunhare.com**
+
+- **[Setting up OBS with Teams on macOS](https://blog.shaunhare.com/posts/obsmacosxteams/)**
+  *December 2020* — Troubleshooting OBS virtual camera integration with Microsoft Teams on macOS, including why removing code signing from Teams was the fix.

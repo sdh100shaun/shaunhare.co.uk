@@ -18,7 +18,7 @@ Before DVSA, I spent a number of years as a developer and manager at the Univers
 
 ## Skills & Technologies
 
-I'm a **Zend Certified PHP Engineer**, a **Spring-certified Java developer**, and **AWS certified**. Day to day, I try to let the problem guide the choice of tools rather than reaching for the familiar one.
+I'm a **AWS Certified Solutions Architect – Professional**, I like learning back in the day I was also a  **Zend Certified PHP Engineer**, a **Spring-certified Java developer**, and lots of other things. However I now write PHP and Typescript and play around with AI whilst managing teams. I have some other **AWS certifications** as well see my badges [at Credly](https://www.credly.com/users/shaun-hare.0f555c25/badges#credly). Day to day, I try to let the problem guide the choice of tools rather than reaching for the familiar one.
 
 **Languages & Frameworks**
 
@@ -40,20 +40,26 @@ MySQL · PostgreSQL · MongoDB · Oracle · SQL Server
 
 Beyond the day job, I'm actively involved in the East Midlands and wider UK tech community.
 
-I co-organise **[PHPMiNDS](https://www.meetup.com/PHPMiNDS-in-Nottingham/)**, a PHP and modern web development meetup group in Nottingham, and help run **[LincolnHack](https://lincolnhack.org/)**, a free 24-hour programming competition that brings developers together to build things and have fun doing it.
+I co-organise  Digital Lincoln **[Digital Lincoln](https://www.digitallincoln.co.uk) and **[PHPMiNDS](https://www.meetup.com/PHPMiNDS-in-Nottingham/)**, a PHP and modern web development meetup group in Nottingham albeit it is on a bit of a hiatus, and help run **[LincolnHack](https://lincolnhack.org/)**, a free 24-hour programming competition that brings developers together to build things and have fun doing it. 
 
-I've spoken at [ServerlessDays Cardiff](https://cardiff.serverlessdays.io/) on DVSA's multi-year journey with serverless applications, and I give occasional guest lectures at Nottingham Trent University on agile methodologies and working in government digital services.
+I like speaking and have spoken at AWS public Sector days, other conferences and meetiups most recently I've spoken at [ServerlessDays Cardiff](https://cardiff.serverlessdays.io/) on DVSA's multi-year journey with serverless applications, and I given occasional guest lectures at Nottingham Trent University on agile methodologies and working in government digital services.
 
-If you're in the area and interested in tech, come along to one of our events — new faces are always welcome.
+If you're in the area and interested in tech, come along to one of our DL events or find me at Nottingham events as I am trying to revive [Nottingham Digital](https://nottingham.digital)— new faces are always welcome.
 
 ## Writing
 
 I write occasionally on the [DVSA Digital Blog](https://dvsadigital.blog.gov.uk/author/shaun-hare/) about the work we're doing, and I keep a small personal blog here for anything else. See the [blog](/blog/) for more.
 
+## Certifications & Badges
+
+<CredlyBadges />
+
+<LocalBadges />
+
 ## Get in touch
 
 - **Email:** shaun [at] shaunhare.co.uk
 - **GitHub:** [sdh100shaun](https://github.com/sdh100shaun)
-- **X / Twitter:** [@sdh100shaun](https://x.com/sdh100shaun)
 - **LinkedIn:** [shaundhare](https://linkedin.com/in/shaundhare)
+- **Elsewhere:** I can be found on the latest social platforms using **@sdh100shaun**
 - **Stack Overflow:** [shaun-hare](https://stackoverflow.com/users/94961/shaun-hare)
