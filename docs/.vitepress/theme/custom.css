@@ -1,0 +1,584 @@
+/* ================================================================
+   SHAUNHARE.CO.UK — Jazzy VitePress Theme
+   ================================================================ */
+
+/* Fonts are loaded via <link> in config.ts head for earliest possible fetch,
+   preventing any flash of unstyled text on the nav title. */
+
+/* --- CSS Variables (Brand & Theme) ----------------------------- */
+:root {
+  /* Teal palette — punchy & vibrant */
+  --vp-c-brand-1: #00c9a7;
+  --vp-c-brand-2: #00dbb6;
+  --vp-c-brand-3: #00efc8;
+  --vp-c-brand-soft: rgba(0, 201, 167, 0.12);
+
+  /* Purple accent */
+  --sh-purple: #7c3aed;
+  --sh-purple-soft: rgba(124, 58, 237, 0.12);
+
+  /* Hero name — will be animated across this gradient */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(
+    90deg,
+    #00c9a7 0%,
+    #a78bfa 40%,
+    #e879f9 70%,
+    #00c9a7 100%
+  );
+
+  /* Portrait background — spinning conic rainbow */
+  --vp-home-hero-image-background-image: conic-gradient(
+    from 0deg,
+    #00c9a7 0deg,
+    #7c3aed 120deg,
+    #e879f9 240deg,
+    #00c9a7 360deg
+  );
+  --vp-home-hero-image-filter: blur(28px);
+
+  /* Typography */
+  --vp-font-family-base:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.dark {
+  --vp-c-brand-1: #00d4b4;
+  --vp-c-brand-2: #00e5c0;
+  --vp-c-brand-3: #00f5d0;
+  --vp-c-brand-soft: rgba(0, 212, 180, 0.14);
+}
+
+/* ----------------------------------------------------------------
+   HOME PAGE — Dot grid & floating orbs
+   ---------------------------------------------------------------- */
+
+.VPHome {
+  position: relative;
+  overflow: hidden;
+  /* Subtle teal dot grid */
+  background-image: radial-gradient(rgba(0, 201, 167, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Teal orb — top right */
+.VPHome::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: -180px;
+  right: -120px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 201, 167, 0.14) 0%,
+    transparent 65%
+  );
+  border-radius: 50%;
+  animation: orb-drift 14s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Purple orb — bottom left */
+.VPHome::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  bottom: -120px;
+  left: -100px;
+  background: radial-gradient(
+    circle,
+    rgba(124, 58, 237, 0.1) 0%,
+    transparent 65%
+  );
+  border-radius: 50%;
+  animation: orb-drift 18s ease-in-out infinite alternate-reverse;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes orb-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, 20px) scale(1.12); }
+}
+
+/* Ensure hero & features sit above orbs */
+.VPHero,
+.VPFeatures {
+  position: relative;
+  z-index: 1;
+}
+
+/* ----------------------------------------------------------------
+   HERO — Animated name gradient
+   ---------------------------------------------------------------- */
+
+.VPHero .name .clip {
+  background-size: 200% auto !important;
+  animation: name-flow 6s linear infinite;
+}
+
+@keyframes name-flow {
+  from { background-position: 0% center; }
+  to   { background-position: 200% center; }
+}
+
+/* ----------------------------------------------------------------
+   HERO — Portrait photo treatment
+   ---------------------------------------------------------------- */
+
+/* Spin the conic rainbow blob behind the photo */
+.VPHero .image-bg {
+  width: 300px !important;
+  height: 300px !important;
+  border-radius: 20px !important;
+  opacity: 0.85 !important;
+  animation: blob-spin 10s linear infinite;
+}
+
+@keyframes blob-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Square portrait with rounded corners and teal ring */
+.VPHero .image-src {
+  border-radius: 16px !important;
+  object-fit: cover;
+  object-position: center top;
+  box-shadow:
+    0 0 0 4px var(--vp-c-bg),
+    0 0 0 7px var(--vp-c-brand-1),
+    0 12px 48px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+.VPHero .image-src:hover {
+  transform: scale(1.03);
+  box-shadow:
+    0 0 0 4px var(--vp-c-bg),
+    0 0 0 7px var(--vp-c-brand-2),
+    0 0 60px rgba(0, 201, 167, 0.4),
+    0 12px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* ----------------------------------------------------------------
+   HERO — Tagline
+   ---------------------------------------------------------------- */
+
+.VPHero .tagline {
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+/* ----------------------------------------------------------------
+   HERO — Buttons
+   ---------------------------------------------------------------- */
+
+.VPButton.medium.brand {
+  background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
+  border-color: transparent;
+  color: #fff;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.VPButton.medium.brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 201, 167, 0.45);
+  border-color: transparent;
+}
+
+.VPButton.medium.alt {
+  transition: transform 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.VPButton.medium.alt:hover {
+  transform: translateY(-2px);
+  color: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+}
+
+/* ----------------------------------------------------------------
+   CUSTOM HOME FEATURE CARDS
+   ---------------------------------------------------------------- */
+
+.sh-features-wrapper {
+  padding: 48px 24px 80px;
+  max-width: 1152px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.sh-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.sh-feature-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Gradient accent bar revealed on hover */
+.sh-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--vp-c-brand-1), var(--sh-purple), #e879f9);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.sh-feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 201, 167, 0.25);
+  box-shadow: 0 16px 48px rgba(0, 201, 167, 0.1);
+}
+
+.sh-feature-card:hover::before {
+  opacity: 1;
+}
+
+.sh-feature-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.sh-feature-icon {
+  display: flex;
+  align-items: center;
+  color: var(--vp-c-brand-1);
+  flex-shrink: 0;
+}
+
+.sh-feature-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.sh-feature-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  border: 1px solid rgba(0, 201, 167, 0.2);
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+}
+
+.sh-feature-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.sh-feature-details {
+  font-size: 0.875rem;
+  color: var(--vp-c-text-2);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ----------------------------------------------------------------
+   NAVIGATION BAR — always black, white text, gradient band
+   ---------------------------------------------------------------- */
+
+.VPNav {
+  position: relative;
+  background-color: #000 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* The inner bar and its curtain overlay */
+.VPNavBar {
+  background-color: #000 !important;
+  border-bottom: none !important;
+}
+
+.VPNavBar .curtain {
+  background: transparent !important;
+}
+
+/* Site title — Nunito rounded, larger, white */
+.VPNavBarTitle .title {
+  font-family: 'Nunito', Helvetica, Arial, sans-serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+  color: #fff !important;
+  letter-spacing: -0.01em;
+}
+
+/* Nav links */
+.VPNavBarMenuLink {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.VPNavBarMenuLink:hover {
+  color: #fff !important;
+}
+
+.VPNavBarMenuLink.active {
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* Social icons */
+.VPSocialLink {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.VPSocialLink:hover {
+  color: #fff !important;
+}
+
+/* Theme-toggle button */
+.VPNavBarAppearance button,
+.VPNavBarAppearance .vpi-sun,
+.VPNavBarAppearance .vpi-moon {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+/* Mobile hamburger bars */
+.VPNavBarHamburger .bar {
+  background-color: #fff !important;
+}
+
+/* Animated gradient band at the bottom of the nav */
+.VPNav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--vp-c-brand-1),
+    var(--sh-purple),
+    #e879f9,
+    var(--sh-purple),
+    var(--vp-c-brand-1)
+  );
+  background-size: 200% auto;
+  animation: nav-band 8s linear infinite;
+  z-index: 10;
+}
+
+@keyframes nav-band {
+  from { background-position: 0% center; }
+  to   { background-position: 200% center; }
+}
+
+/* ----------------------------------------------------------------
+   FOOTER
+   ---------------------------------------------------------------- */
+
+.VPFooter {
+  background: var(--vp-c-bg-soft) !important;
+}
+
+/* ----------------------------------------------------------------
+   BLOG LIST
+   ---------------------------------------------------------------- */
+
+.blog-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blog-list li {
+  border-top: 1px solid var(--vp-c-divider);
+  padding: 1.5rem 0;
+  transition: padding-left 0.25s ease;
+}
+
+.blog-list li:first-child {
+  border-top: none;
+}
+
+.blog-list li:hover {
+  padding-left: 8px;
+}
+
+.blog-list .post-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.blog-list li:hover .post-title {
+  color: var(--vp-c-brand-1);
+}
+
+.blog-list .post-meta {
+  font-size: 0.875rem;
+  color: var(--vp-c-text-2);
+  margin-top: 0.25rem;
+}
+
+/* ----------------------------------------------------------------
+   SKILLS GRID (About page)
+   ---------------------------------------------------------------- */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.5rem;
+  margin: 1rem 0 2rem;
+}
+
+.skill-tag {
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  border: 1px solid rgba(0, 201, 167, 0.2);
+  border-radius: 8px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.skill-tag:hover {
+  background: rgba(0, 201, 167, 0.2);
+  transform: translateY(-1px);
+}
+
+/* ----------------------------------------------------------------
+   PROSE — Content pages (about, blog)
+   ---------------------------------------------------------------- */
+
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.vp-doc h2 {
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+/* ----------------------------------------------------------------
+   CREDLY BADGES
+   ---------------------------------------------------------------- */
+
+.credly-badges-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+  align-items: flex-start;
+}
+
+/* ----------------------------------------------------------------
+   LOCAL BADGE CARDS
+   ---------------------------------------------------------------- */
+
+.local-badges-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+  align-items: flex-start;
+}
+
+.local-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  padding: 1rem 0.75rem;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.local-badge.is-link:hover {
+  transform: translateY(-3px);
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 8px 24px rgba(0, 201, 167, 0.12);
+}
+
+.local-badge-img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+.local-badge-info {
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
+.local-badge-name {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  line-height: 1.3;
+}
+
+.local-badge-issuer {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--vp-c-text-2);
+  margin-top: 0.2rem;
+}
+
+.local-badge-date {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--vp-c-brand-1);
+  margin-top: 0.1rem;
+}
+
+/* ----------------------------------------------------------------
+   BROWSER CHROME — Scrollbar & text selection
+   ---------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-brand-soft);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-brand-1);
+}
+
+::selection {
+  background: rgba(0, 201, 167, 0.2);
+  color: var(--vp-c-brand-1);
+}

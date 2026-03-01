@@ -1,0 +1,8 @@
+{
+  "_readme": "Copy this file, rename it (and a matching image) to add a badge. Remove this _readme field.",
+  "name": "Zend Certified PHP Engineer",
+  "issuer": "Zend Technologies",
+  "issued": "2009",
+  "url": "https://www.zend.com/en/yellow-pages",
+  "description": "PHP 5 certification"
+}
