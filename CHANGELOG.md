@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/sdh100shaun/shaunhare.co.uk/compare/v1.0.1...v1.1.0) (2026-03-22)
+
+
+### Features
+
+* fix worflow ([a7eaeef](https://github.com/sdh100shaun/shaunhare.co.uk/commit/a7eaeef6cf83027263b09794d3ca3d040a53c435))
+* fix worflow ([c7b7766](https://github.com/sdh100shaun/shaunhare.co.uk/commit/c7b7766361ff9ea59e16a29ebdf7f26de5c675d2))
+
 ## [1.0.1](https://github.com/sdh100shaun/shaunhare.co.uk/compare/v1.0.0...v1.0.1) (2026-03-22)
 
 
