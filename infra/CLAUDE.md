@@ -16,6 +16,7 @@ npm run deploy   # Deploy to AWS
 npm run destroy  # Tear down the stack
 ```
 
+These `npm run synth/diff/deploy/destroy` scripts assume a locally configured AWS profile named `cdk-personal` when not running in CI. Configure it with `aws configure --profile cdk-personal`, or override by setting `AWS_PROFILE=<your-profile>` (or by editing the npm scripts) before running the commands.
 Deploy with context values:
 ```bash
 # Minimal deploy
