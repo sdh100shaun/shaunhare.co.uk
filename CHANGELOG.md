@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/sdh100shaun/shaunhare.co.uk/compare/v1.0.0...v1.0.1) (2026-03-22)
+
+
+### Bug Fixes
+
+* added new badge and amended workflow ([b6904ce](https://github.com/sdh100shaun/shaunhare.co.uk/commit/b6904ce377b02fedb5d675799bd6b2bd03300a49))
+* added new badge and amended workflow ([cb2cb07](https://github.com/sdh100shaun/shaunhare.co.uk/commit/cb2cb07387bc423bc6ef6b47cdeb4fef99e52c54))
+
 ## 1.0.0 (2026-03-22)
 
 
