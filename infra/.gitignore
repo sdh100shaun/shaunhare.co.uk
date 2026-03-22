@@ -1,4 +1,4 @@
 node_modules/
 dist/
 cdk.out/
-# cdk.context.json is intentionally committed so context lookups are reproducible
+cdk.context.json
