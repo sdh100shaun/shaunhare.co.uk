@@ -1,25 +1,40 @@
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib'
 import { GithubDeployRoleStack } from '../lib/github-deploy-role-stack'
+import { WebsiteStack } from '../lib/website-stack'
 
 const app = new cdk.App()
 
-// Context values can be supplied at synth/deploy time with -c key=value,
-// or persisted in cdk.context.json after the first `cdk synth`.
-const s3BucketArn = app.node.tryGetContext('s3BucketArn') as string | undefined
-const cloudfrontDistributionArn = app.node.tryGetContext('cloudfrontDistributionArn') as
-  | string
-  | undefined
+const env = {
+  account: process.env.CDK_DEFAULT_ACCOUNT,
+  region: process.env.CDK_DEFAULT_REGION,
+}
+
+// ── Website Stack ─────────────────────────────────────────────────────────────
+// Creates the CloudFront distribution and URL-rewrite function.
+// Pass existingBucketName to use a pre-existing bucket (recommended):
+//   cdk deploy -c existingBucketName=www.shaunhare.co.uk
+const existingBucketName = app.node.tryGetContext('existingBucketName') as string | undefined
+
+const website = new WebsiteStack(app, 'ShaunHareWebsite', {
+  domainName: 'shaunhare.co.uk',
+  existingBucketName,
+  env,
+})
+
+// ── GitHub Deploy Role Stack ──────────────────────────────────────────────────
+// ARNs are taken from the WebsiteStack by default. You can override them with
+// -c flags if you need to point at a pre-existing bucket or distribution.
+const s3BucketArn =
+  (app.node.tryGetContext('s3BucketArn') as string | undefined) ?? website.bucket.bucketArn
+
+const cloudfrontDistributionArn =
+  (app.node.tryGetContext('cloudfrontDistributionArn') as string | undefined) ??
+  `arn:aws:cloudfront::${env.account}:distribution/${website.distribution.distributionId}`
+
 const existingOidcProviderArn = app.node.tryGetContext('existingOidcProviderArn') as
   | string
   | undefined
-
-if (!s3BucketArn) {
-  throw new Error(
-    'Required context missing: s3BucketArn\n' +
-      'Pass it with: cdk deploy -c s3BucketArn=arn:aws:s3:::your-bucket-name',
-  )
-}
 
 new GithubDeployRoleStack(app, 'ShaunHareDeployRole', {
   githubOrg: 'sdh100shaun',
@@ -27,8 +42,5 @@ new GithubDeployRoleStack(app, 'ShaunHareDeployRole', {
   s3BucketArn,
   cloudfrontDistributionArn,
   existingOidcProviderArn,
-  env: {
-    account: process.env.CDK_DEFAULT_ACCOUNT,
-    region: process.env.CDK_DEFAULT_REGION,
-  },
+  env,
 })
