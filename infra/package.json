@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "synth": "if [ -z \"$CI\" ]; then cdk synth --profile cdk-personal; else cdk synth; fi",
-    "diff": "if [ -z \"$CI\" ]; then cdk diff --profile cdk-personal; else cdk diff; fi",
-    "deploy": "if [ -z \"$CI\" ]; then cdk deploy --profile cdk-personal; else cdk deploy; fi",
-    "destroy": "if [ -z \"$CI\" ]; then cdk destroy --profile cdk-personal; else cdk destroy; fi"
+    "synth": "cdk synth $([ -z \"$CI\" ] && echo --profile cdk-personal)",
+    "diff": "cdk diff $([ -z \"$CI\" ] && echo --profile cdk-personal)",
+    "deploy": "cdk deploy $([ -z \"$CI\" ] && echo --profile cdk-personal)",
+    "destroy": "cdk destroy $([ -z \"$CI\" ] && echo --profile cdk-personal)"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.180.0",
