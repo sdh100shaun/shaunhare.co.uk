@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/sdh100shaun/shaunhare.co.uk/compare/v1.1.0...v1.2.0) (2026-03-29)
+
+
+### Features
+
+* add web stack ([4ffb4db](https://github.com/sdh100shaun/shaunhare.co.uk/commit/4ffb4db91e40345fb957f00c3e8de4d6a9291884))
+* adding kiro badge ([4b2af1d](https://github.com/sdh100shaun/shaunhare.co.uk/commit/4b2af1da83bedbb59561184a69b4333e67ee1b1e))
+
 ## [1.1.0](https://github.com/sdh100shaun/shaunhare.co.uk/compare/v1.0.1...v1.1.0) (2026-03-22)
 
 
